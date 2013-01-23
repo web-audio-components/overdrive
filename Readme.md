@@ -7,41 +7,40 @@
 
     $ component install nick-thompson/overdrive
 
-## API
+## Example
 
-Overdrive exports a constructor which takes three arguments: an AudioContext,
-`tone`, and `drive`. This module's behavior is undefined for drive values
-outside the range [0, 1]. The returned object supports connections from 
-AudioNodes to its `input` property, and supports AudioNode prototype methods 
-`connect` and `disconnect`.
-
-   
 ```javascript
 var context = new webkitAudioContext()
-  , request = new XMLHttpRequest()
   , Overdrive = require("overdrive")
-  , overdrive = new Overdrive(context, 2500, 0.5);
+  , overdrive = new Overdrive(context, 2500, 0.5)
+  , node = context.createOscillator();
 
-request.open("get", "/test/human-voice.wav", true);
-request.responseType = "arraybuffer";
-request.onload = function () {
-  context.decodeAudioData(request.response, function (buffer) {
-
-    var node = context.createBufferSource();
-    node.buffer = buffer;
-
-    node.connect(overdrive.input);
-    overdrive.connect(context.destination);
-
-    node.start(0);
-
-    // Adjust drive settings which take immediate effect
-    overdrive.drive = 0.01;
-
-  });
-};
-request.send();
+node.connect(overdrive.input);
+overdrive.connect(context.destination);
+node.start(0);
 ```
+
+For further examples, see the test files.
+
+## API
+
+### Overdrive(context, tone, drive)
+
+Instantiate an Overdrive effect module. Expects an `AudioContext` as the first
+parameter. Accepts AudioNode connections to the `.input` property.
+
+### .connect(node)
+
+Connect an Overdrive module to an `AudioNode`.
+
+#### Parameters
+
+- `.drive`: Distortion amount.
+- `.tone`: Prefilter lowpass cutoff frequency.
+
+### .disconnect()
+
+Disconnect all outgoing connections from an Overdrive module.
 
 ## License
 
