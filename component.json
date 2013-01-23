@@ -17,18 +17,7 @@
   "scripts": [
     "index.js"
   ],
-  "wapm": {
-    "type": "effect",
-    "initialize": [0.6, 3000],
-    "parameters": {
-      "drive": {
-        "min": 0,
-        "max": 1
-      },
-      "tone": {
-        "min": 0,
-        "max": 20050
-      }
-    }
+  "web-audio": {
+    "type": "effect"
   }
 }
