@@ -29,14 +29,14 @@ For further examples, see the test files.
 Instantiate an Overdrive effect module. Expects an `AudioContext` as the first
 parameter. Accepts AudioNode connections to the `.input` property.
 
-### .connect(node)
-
-Connect an Overdrive module to an `AudioNode`.
-
-#### Parameters
+**Parameters**
 
 - `.drive`: Distortion amount.
 - `.tone`: Prefilter lowpass cutoff frequency.
+
+### .connect(node)
+
+Connect an Overdrive module to an `AudioNode`.
 
 ### .disconnect()
 
