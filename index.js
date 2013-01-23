@@ -98,6 +98,7 @@ Overdrive.prototype = Object.create(null, {
    */
 
   tone: {
+    enumerable: true,
     get: function () { return this._lowpass.frequency.value; },
     set: function (value) {
       this._lowpass.frequency.setValueAtTime(value, 0);

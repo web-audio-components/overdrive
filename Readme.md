@@ -7,7 +7,7 @@
 
     $ component install nick-thompson/overdrive
 
-## Example
+## Example Usage
 
 ```javascript
 var context = new webkitAudioContext()
