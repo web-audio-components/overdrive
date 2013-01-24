@@ -31,8 +31,8 @@ parameter. Accepts AudioNode connections to the `.input` property.
 
 **Parameters**
 
-- `.drive` Distortion amount.
-- `.tone` Prefilter lowpass cutoff frequency.
+- `tone` Prefilter lowpass cutoff frequency.
+- `drive` Distortion amount.
 
 ### .connect(node)
 
