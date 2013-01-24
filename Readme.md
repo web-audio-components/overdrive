@@ -5,7 +5,7 @@
 
 ## Installation
 
-    $ component install nick-thompson/overdrive
+    $ component install web-audio-components/overdrive
 
 ## Example Usage
 
@@ -31,8 +31,8 @@ parameter. Accepts AudioNode connections to the `.input` property.
 
 **Parameters**
 
-- `.drive`: Distortion amount.
-- `.tone`: Prefilter lowpass cutoff frequency.
+- `.drive` Distortion amount.
+- `.tone` Prefilter lowpass cutoff frequency.
 
 ### .connect(node)
 
