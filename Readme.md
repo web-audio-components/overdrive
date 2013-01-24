@@ -1,5 +1,5 @@
 
-# overdrive
+# Overdrive
 
   An overdrive/distortion effect for the Web Audio API.
 
