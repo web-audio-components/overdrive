@@ -21,8 +21,8 @@ function Overdrive (context, tone, drive) {
   this._ws.connect(this.output);
 
   // Defaults
-  this.drive  = drive || this.meta.drive.defaultValue;
-  this.tone   = tone  || this.meta.drive.defaultValue;
+  this.drive = drive || this.meta.drive.defaultValue;
+  this._lowpass.frequency.value = tone  || this.meta.drive.defaultValue;
 }
 
 Overdrive.prototype = Object.create(null, {
