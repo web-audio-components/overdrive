@@ -11,28 +11,35 @@
 
 ```javascript
 var context = new webkitAudioContext()
-  , Overdrive = require("overdrive")
-  , overdrive = new Overdrive(context, 2500, 0.5)
   , node = context.createOscillator();
+  , Overdrive = require("overdrive")
+  , overdrive = new Overdrive(context, {
+      preBand: 1.0,
+      color: 4000,
+      drive: 0.8,
+      postCut: 8000
+    });
 
 node.connect(overdrive.input);
 overdrive.connect(context.destination);
 node.start(0);
 ```
 
-For further examples, see the test files.
+For another example, see the test directory.
 
 ## API
 
-### Overdrive(context, tone, drive)
+### Overdrive(context, options)
 
 Instantiate an Overdrive effect module. Expects an `AudioContext` as the first
-parameter. Accepts AudioNode connections to the `.input` property.
+parameter.
 
-**Parameters**
+**Options**
 
-- `tone` Prefilter lowpass cutoff frequency.
-- `drive` Distortion amount.
+- `preBand` Pre-distortion bandpass filter wet gain coefficient.
+- `color` Pre-distortion bandpass filter frequency.
+- `drive` Overdrive amount
+- `postCut` Post-distortion lowpass filter cutoff frequency.
 
 ### .connect(node)
 

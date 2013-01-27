@@ -12,8 +12,10 @@
         , request = new XMLHttpRequest()
         , Overdrive = require("overdrive")
         , overdrive = new Overdrive(context, {
-            drive: 0.5,
-            tone: 2000
+            preBand: 1.0,
+            color: 4000,
+            drive: 0.8,
+            postCut: 8000
           });
 
       request.open("get", "/test/human-voice.wav", true);
