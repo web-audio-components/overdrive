@@ -11,7 +11,10 @@
       var context = new webkitAudioContext()
         , request = new XMLHttpRequest()
         , Overdrive = require("overdrive")
-        , overdrive = new Overdrive(context, 2500, 0.5);
+        , overdrive = new Overdrive(context, {
+            drive: 0.5,
+            tone: 2000
+          });
 
       request.open("get", "/test/human-voice.wav", true);
       request.responseType = "arraybuffer";

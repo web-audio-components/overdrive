@@ -3,11 +3,12 @@
  * Overdrive effect module for the Web Audio API.
  *
  * @param {AudioContext} context
- * @param {Number} tone Min: 0, Max: 20050
- * @param {Number} drive Min: 0, Max: 1.0
+ * @param {object} opts
+ * @param {number} opts.tone
+ * @param {number} opts.drive
  */
 
-function Overdrive (context, tone, drive) {
+function Overdrive (context, opts) {
   this.input = context.createGainNode();
   this.output = context.createGainNode();
 
@@ -21,8 +22,8 @@ function Overdrive (context, tone, drive) {
   this._ws.connect(this.output);
 
   // Defaults
-  this.drive = drive || this.meta.drive.defaultValue;
-  this._lowpass.frequency.value = tone  || this.meta.drive.defaultValue;
+  this.drive = opts.drive || this.meta.params.drive.defaultValue;
+  this._lowpass.frequency.value = opts.tone  || this.meta.params.drive.defaultValue;
 }
 
 Overdrive.prototype = Object.create(null, {
@@ -55,17 +56,20 @@ Overdrive.prototype = Object.create(null, {
 
   meta: {
     value: {
-      drive: {
-        min: 0.0,
-        max: 1.0,
-        defaultValue: 0.5,
-        type: "pot"
-      },
-      tone: {
-        min: 200,
-        max: 18000,
-        defaultValue: 3000,
-        type: "pot"
+      name: "Overdrive",
+      params: {
+        drive: {
+          min: 0.0,
+          max: 1.0,
+          defaultValue: 0.5,
+          type: "pot"
+        },
+        tone: {
+          min: 200,
+          max: 18000,
+          defaultValue: 3000,
+          type: "pot"
+        }
       }
     }
   },
@@ -111,3 +115,4 @@ Overdrive.prototype = Object.create(null, {
  */
 
 module.exports = Overdrive;
+
