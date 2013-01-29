@@ -32,6 +32,7 @@ function Overdrive (context, opts) {
 
   // Defaults
   var p = this.meta.params;
+  opts = opts || {};
   this._bandpass.frequency.value  = opts.color        || p.color.defaultValue;
   this._bpWet.gain.value          = opts.preBand      || p.preBand.defaultValue;
   this._lowpass.frequency.value   = opts.postCut      || p.postCut.defaultValue;
