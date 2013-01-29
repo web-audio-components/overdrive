@@ -11,7 +11,11 @@
     "overdrive"
   ],
   "dependencies": {},
-  "development": {},
+  "development": {
+    "web-audio-components/rack" : "*",
+    "jsantell/allen" : "*",
+    "component/event" : "*"
+  },
   "license": "MIT",
   "scripts": [
     "index.js"
