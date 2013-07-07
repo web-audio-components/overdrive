@@ -2,7 +2,7 @@
   "name": "overdrive",
   "repo": "web-audio-components/overdrive",
   "description": "An overdrive distortion effect for the Web Audio API.",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "author": "Nick Thompson <ncthom91@gmail.com>",
   "twitter": "@ncthom91",
   "keywords": [

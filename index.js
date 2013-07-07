@@ -11,13 +11,13 @@
  */
 
 function Overdrive (context, opts) {
-  this.input = context.createGainNode();
-  this.output = context.createGainNode();
+  this.input = context.createGain();
+  this.output = context.createGain();
 
   // Internal AudioNodes
   this._bandpass = context.createBiquadFilter();
-  this._bpWet = context.createGainNode();
-  this._bpDry = context.createGainNode();
+  this._bpWet = context.createGain();
+  this._bpDry = context.createGain();
   this._ws = context.createWaveShaper();
   this._lowpass = context.createBiquadFilter();
 

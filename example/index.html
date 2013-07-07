@@ -80,7 +80,7 @@
       function stop () {
         playEl.style.display = 'block';
         stopEl.style.display = 'none';
-        bufferNode.noteOff(0);
+        bufferNode[bufferNode.stop ? 'stop' : 'noteOff'](0);
         bufferNode.disconnect();
       }
 
